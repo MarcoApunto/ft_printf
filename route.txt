@@ -1,0 +1,30 @@
+					|		%c = ft_putchar_fd(...);
+ft_conver_letters: {		%s = ft_putstr_fd(...);
+					|		%% = print %;
+	
+ft_conver_vptr: {			%p = puntero a void *, print hexa format;
+	
+					|		%d = decimal, base 10;
+					|		%i = int, base 10;
+ft_conver_numbers:	{		%u = decimal sin signo, base 10;
+					|		%x = hexa, base 16 (minuscula);
+					|		%X = hexa, base 16 (mayuscula);
+
+type va_arg{
+	va_list arg_ptr,
+	type
+};
+void va_copy{
+	va_list dest,
+	va_list src
+}; // (ISO C99 and later)
+void va_end{
+	va_list arg_ptr
+};
+void va_start{
+	va_list arg_ptr,
+	prev_param
+}; // (ANSI C89 and later)
+void va_start{
+   arg_ptr
+};  // (deprecated Pre-ANSI C89 standardization version)
