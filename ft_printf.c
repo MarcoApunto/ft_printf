@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:37:47 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/26 22:26:34 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/27 20:49:34 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@ static int	ft_formats(va_list args, char format)
 	int	dst;
 
 	dst = 0;
+	if (format == '%')
+		dst += ft_print_chr('%');
 	if (format == 's')
 		dst += ft_print_str(va_arg(args, char *));
+	if (format == 'c')
+		dst += ft_print_chr(va_arg(args, int));
+	if (format == 'd')
+		dst += ft_print_nbr(va_arg(args, int));
 	return (dst);
 }
 
@@ -33,14 +39,13 @@ int	ft_printf(char const *prm, ...)
 	va_start(args, prm);
 	while (prm[i])
 	{
-		if (prm[i] == '%')
+		if (prm[i] != '%')
 		{
-			data += ft_formats(args, prm[i + 1]);
-			i++;
+			data += write(1, &prm[i], 1);
 		}
 		else
 		{
-			data += write(1, &prm[i], 1);
+			data += ft_formats(args, prm[i + 1]);
 			i++;
 		}
 		i++;
@@ -51,5 +56,5 @@ int	ft_printf(char const *prm, ...)
 
 int	main(void)
 {
-	ft_printf("%s", "Hola");
+	ft_printf("my str: %s, my num: %d, my %%, my chr: %c", "hola", 2147483647, 'f');
 }

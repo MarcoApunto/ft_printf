@@ -6,11 +6,11 @@
 #    By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 22:39:21 by marferre          #+#    #+#              #
-#    Updated: 2022/09/26 22:29:15 by marferre         ###   ########.fr        #
+#    Updated: 2022/09/27 19:35:16 by marferre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_printf.c ft_conver_letters.c \
+SRCS	= ft_printf.c ft_conver_ltrs.c ft_conver_nbr.c \
 
 OBJS	= ${SRCS:.c=.o}
 

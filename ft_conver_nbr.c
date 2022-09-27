@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_conver_nbr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 13:38:57 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/27 19:51:08 by marferre         ###   ########.fr       */
+/*   Created: 2022/09/27 19:25:52 by marferre          #+#    #+#             */
+/*   Updated: 2022/09/27 20:38:45 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int	ft_print_nbr(int nbr)
+{
+	int				len;
+	long long int	nb;
 
-int	ft_printf(char const *printf, ...);
-int	ft_print_str(char const *s);
-int	ft_print_chr(char const c);
-int	ft_print_nbr(int nbr);
-
-#endif
+	len = 0;
+	nb = (long long int)nbr;
+	if (nb < 0)
+	{
+		ft_print_chr('-');
+		nb *= -1;
+	}
+	if (nb > 9)
+	{
+		ft_print_nbr(nb / 10);
+		nb %= 10;
+	}
+	len++;
+	ft_print_chr(nb + '0');
+	return (len);
+}
