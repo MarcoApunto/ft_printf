@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:37:47 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/27 20:49:34 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/27 20:56:37 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_formats(va_list args, char format)
 		dst += ft_print_str(va_arg(args, char *));
 	if (format == 'c')
 		dst += ft_print_chr(va_arg(args, int));
-	if (format == 'd')
+	if (format == 'd' || format == 'i')
 		dst += ft_print_nbr(va_arg(args, int));
 	return (dst);
 }
@@ -56,5 +56,5 @@ int	ft_printf(char const *prm, ...)
 
 int	main(void)
 {
-	ft_printf("my str: %s, my num: %d, my %%, my chr: %c", "hola", 2147483647, 'f');
+	ft_printf("my str: %s, my num: %i, my %%, my chr: %c", "hola", -2147483648, 'f');
 }
