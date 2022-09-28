@@ -6,11 +6,11 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:25:52 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/27 20:38:45 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:09:25 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_print_nbr(int nbr)
 {
@@ -31,5 +31,7 @@ int	ft_print_nbr(int nbr)
 	}
 	len++;
 	ft_print_chr(nb + '0');
+	if (len < 0)
+		len++;
 	return (len);
 }

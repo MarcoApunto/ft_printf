@@ -6,11 +6,11 @@
 #    By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 22:39:21 by marferre          #+#    #+#              #
-#    Updated: 2022/09/27 19:35:16 by marferre         ###   ########.fr        #
+#    Updated: 2022/09/28 15:58:45 by marferre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_printf.c ft_conver_ltrs.c ft_conver_nbr.c \
+SRCS	= ft_printf.c ft_conver_ltrs.c ft_conver_nbr.c ft_conver_ptr.c \
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -25,7 +25,7 @@ LIBFT_SRCS = libft/ft_isalpha.c libft/ft_isdigit.c libft/ft_isalnum.c libft/ft_i
 
 LIBFT_OBJS	= ${LIBFT_SRCS:.c=.o}
 
-NAME	= libprintf.a
+NAME	= libftprintf.a
 CC		= gcc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror
