@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:25:52 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/29 12:34:32 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:37:38 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_base(unsigned int nbr, char *bs)
 {
-	int	len;
+	static int	len;
 
 	len = 0;
 	if (nbr >= ft_strlen(bs))
@@ -29,11 +29,11 @@ int	ft_print_base(unsigned int nbr, char *bs)
 
 int	ft_print_nbr(int nbr)
 {
-	long int	nb;
-	int			len;
+	long long int			nb;
+	static int				len;
 
 	len = 0;
-	nb = (long int)nbr;
+	nb = (long long int)nbr;
 	if (nb < 0)
 	{
 		ft_print_chr('-');
@@ -45,6 +45,8 @@ int	ft_print_nbr(int nbr)
 		nb %= 10;
 	}
 	len++;
+	if (nbr < 0)
+		len++;
 	ft_print_chr(nb + '0');
 	return (len);
 }

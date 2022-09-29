@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:37:47 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/29 12:27:59 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:06:36 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,24 @@ int	ft_printf(char const *prm, ...)
 	va_start(args, prm);
 	while (prm[i])
 	{
-		if (prm[i] != '%')
-			data += write(1, &prm[i], 1);
-		else
+		if (prm[i] == '%')
 		{
 			data += ft_formats(args, prm[i + 1]);
 			i++;
 		}
+		else
+			data += write(1, &prm[i], 1);
 		i++;
 	}
 	va_end(args);
 	return (data);
+}
+#include <stdio.h>
+
+int main()
+{
+	char *p = "hola";
+
+	printf("%s", p);
+	ft_printf("%s", p);
 }
