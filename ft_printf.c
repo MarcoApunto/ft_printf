@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:37:47 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/29 16:06:36 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:15:30 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,4 @@ int	ft_printf(char const *prm, ...)
 	}
 	va_end(args);
 	return (data);
-}
-#include <stdio.h>
-
-int main()
-{
-	char *p = "hola";
-
-	printf("%s", p);
-	ft_printf("%s", p);
 }
