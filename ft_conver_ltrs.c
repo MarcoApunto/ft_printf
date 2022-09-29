@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:45:18 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/28 16:06:00 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:42:27 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 int	ft_print_str(char const *s)
 {
 	if (!s)
-		return (0);
-	else
-		write(1, &*s, ft_strlen(s));
+	{
+		ft_print_str("(null)");
+		return (6);
+	}
+	write(1, &*s, ft_strlen(s));
 	return (ft_strlen(s));
 }
 

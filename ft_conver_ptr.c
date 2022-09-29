@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 14:53:03 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/28 15:52:19 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:27:28 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	ft_hxd(size_t hx)
 	int		len;
 	char	*bs;
 
-	bs = "0123456789abcef";
+	bs = BS_HX_MINUS;
 	len = 0;
-	while (hx >= 16)
+	if (hx >= 16)
 	{
 		ft_hxd(hx / 16);
 		hx %= 16;
@@ -29,12 +29,12 @@ static int	ft_hxd(size_t hx)
 	return (len);
 }
 
-int	ft_print_ptr(void *p)
+int	ft_print_ptr(void *ptr)
 {
 	int		lnb;
 	size_t	nbr;
 
-	nbr = (size_t)p;
+	nbr = (size_t)ptr;
 	lnb = write(1, "0x", 2);
 	lnb += ft_hxd(nbr);
 	return (lnb);

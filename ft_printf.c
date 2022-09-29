@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:37:47 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/28 16:06:26 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/29 12:27:59 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,22 @@ static int	ft_formats(va_list args, char format)
 	dst = 0;
 	if (format == '%')
 		dst += ft_print_chr('%');
-	if (format == 's')
-		dst += ft_print_str(va_arg(args, char *));
-	if (format == 'c')
-		dst += ft_print_chr(va_arg(args, int));
-	if (format == 'i')
+	else if (format == 'i' || format == 'd')
 		dst += ft_print_nbr(va_arg(args, int));
-	/*
-	if (format == 'd')
-		return (0);
-	if (format == 'u')
-		return (0);
-	*/
-	if (format == 'p')
+	else if (format == 'c')
+		dst += ft_print_chr(va_arg(args, int));
+	else if (format == 's')
+		dst += ft_print_str(va_arg(args, char *));
+	else if (format == 'p')
 		dst += ft_print_ptr(va_arg(args, void *));
-	/*
-	if (format == 'x')
-		dst += ft_print_hxd(va_arg(args, "0123456789abcdef"));
-	if (format == 'X')
-		return (0);
-	*/
+	else if (format == 'u')
+		dst += ft_print_base(va_arg(args, int), BS_DEC);
+	else if (format == 'x')
+		dst += ft_print_base(va_arg(args, int), BS_HX_MINUS);
+	else if (format == 'X')
+		dst += ft_print_base(va_arg(args, int), BS_HX_MAYUS);
+	else
+		dst += ft_print_str(va_arg(args, char *));
 	return (dst);
 }
 
