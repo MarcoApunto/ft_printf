@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 22:24:06 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/25 21:18:50 by marferre         ###   ########.fr       */
+/*   Updated: 2022/10/01 15:57:47 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*ft_malloc_things(char const *s, int sprt, int i)
 	char	*dst;
 	int		j;
 
-	dst = malloc(sizeof(char) * (i - sprt));
+	dst = malloc(sizeof(char) * ((i - sprt) + 1));
 	if (!dst)
 		return (0);
 	j = 0;

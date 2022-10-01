@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 14:53:03 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/29 15:16:09 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/30 21:03:52 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_hxd(size_t hx)
 {
 	static int		len;
-	char	*bs;
+	char			*bs;
 
 	bs = BS_HX_MINUS;
 	len = 0;
